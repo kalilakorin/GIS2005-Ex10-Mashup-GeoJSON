@@ -1,5 +1,5 @@
 // Add your fetch function here
-var wildfireJsonUrl = '';
+var wildfireJsonUrl = 'data/wildfire.json';
 fetch(wildfireJsonUrl) // Load the wildfire geojson file from the data directory, use a relative path
     .then(res => res.json())
     .then((geojson) => { // Code executes after geojson has been loaded
@@ -8,7 +8,7 @@ fetch(wildfireJsonUrl) // Load the wildfire geojson file from the data directory
         
 }).catch(err => console.error(err));
 
-var fireIconUrl = '';
+var fireIconUrl = 'images/fire.png';
 
 function updateMap(geojson){
   map.on('load', function() {
@@ -28,14 +28,14 @@ function updateMap(geojson){
         'layout': {
         
           // Add icon-image - replace xxx with label assigned in addImage function
-          'icon-image': 'xxx',
+          'icon-image': 'fire',
         
           // Add icon-size below replace with decimal value 
           // Play around with it somewhere between 0 - 1
-          'icon-size': y.yy,
+          'icon-size': 0.25,
 
           // get the title name from the source's "name" property
-          'text-field': ['get', 'fixme!!!!'],
+          'text-field': ['get', 'name'],
           'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
           'text-offset': [0, 0.6],
           'text-anchor': 'top'
